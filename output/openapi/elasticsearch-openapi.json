@@ -2215,7 +2215,7 @@
         "x-codeSamples": [
           {
             "lang": "Console",
-            "source": "GET /_cat/nodes?v=true&format=json\n"
+            "source": "GET /_cat/nodes?v=true&h=id,ip,port,v,m&format=json\n"
           }
         ]
       }
@@ -8461,7 +8461,7 @@
         "x-codeSamples": [
           {
             "lang": "Console",
-            "source": "GET my-index-000001/_doc/0\n"
+            "source": "GET my-index-000001/_doc/1?stored_fields=tags,counter\n"
           }
         ]
       },
@@ -17490,7 +17490,7 @@
         "x-codeSamples": [
           {
             "lang": "Console",
-            "source": "GET /_resolve/cluster/my-index*,clust*:my-index*\n"
+            "source": "GET /_resolve/cluster/not-present,clust*:my-index*,oldcluster:*?ignore_unavailable=false&timeout=5s\n"
           }
         ]
       }
@@ -17532,7 +17532,7 @@
         "x-codeSamples": [
           {
             "lang": "Console",
-            "source": "GET /_resolve/cluster/my-index*,clust*:my-index*\n"
+            "source": "GET /_resolve/cluster/not-present,clust*:my-index*,oldcluster:*?ignore_unavailable=false&timeout=5s\n"
           }
         ]
       }
@@ -35404,7 +35404,7 @@
         "x-codeSamples": [
           {
             "lang": "Console",
-            "source": "GET /_security/api_key?id=VuaCfGcBCdbkQm-e5aOx&with_limited_by=true\n"
+            "source": "GET /_security/api_key?username=myuser&realm_name=native1\n"
           }
         ]
       },
@@ -42358,7 +42358,13 @@
             }
           }
         },
-        "x-state": "Added in 8.10.0"
+        "x-state": "Added in 8.10.0",
+        "x-codeSamples": [
+          {
+            "lang": "Console",
+            "source": "PUT _synonyms/my-synonyms-set\n"
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -42837,7 +42843,7 @@
         "x-codeSamples": [
           {
             "lang": "Console",
-            "source": "GET _tasks?actions=cluster:*\n"
+            "source": "GET _tasks?detailed=true&actions=*/delete/byquery\n"
           }
         ]
       }
